@@ -15,12 +15,12 @@ const CategoryItem = ({ item, isSelected, onPress }: CategoryItemProps) => {
           size={24}
           color={isSelected ? "#FFF" : COLORS.primary}
         />
-        <Text
-          className={`text-xs font-medium ${isSelected ? "text-primary" : "text-secondary"}`}
-        >
-          {item.name}
-        </Text>
       </View>
+      <Text
+        className={`text-xs font-medium ${isSelected ? "text-primary" : "text-secondary"}`}
+      >
+        {item.name}
+      </Text>
     </TouchableOpacity>
   );
 };
