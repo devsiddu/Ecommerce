@@ -57,7 +57,7 @@ export const useWishlist = () => {
   const context = useContext(WishlistContext);
 
   if (context === undefined) {
-    throw new Error("useWhsilist must be used whitin a WishlistProvider");
+    throw new Error("useWhsilist must be used within a WishlistProvider");
   }
 
   return context;
