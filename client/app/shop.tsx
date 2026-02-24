@@ -64,11 +64,11 @@ const Shop = () => {
                 <View className='flex-1 flex-row items-center bg-white rounded-xl border border-gray-100 '>
                     <Ionicons
                         name='search'
-                        className='ml-4'
+                        style={{ marginLeft: 16 }}
                         size={20}
                         color={COLORS.secondary}
                     />
-                    <TextInput className='flex-1 ml-2 text-primary px-4 py-3' placeholder='serach products' placeholderTextColor={COLORS.secondary} returnKeyType='search' />
+                    <TextInput className='flex-1 ml-2 text-primary px-4 py-3' placeholder='Search products' placeholderTextColor={COLORS.secondary} returnKeyType='search' />
                 </View>
                 {/* filter icon */}
 
@@ -87,7 +87,7 @@ const Shop = () => {
                 </View>
             ) : (
                 <FlatList data={products}
-                    keyExtractor={(item) => item._id} numColumns={2} contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
+                    keyExtractor={(item, index) => `${item._id}-${index}`} numColumns={2} contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
                     columnWrapperStyle={{ justifyContent: 'space-between' }}
                     renderItem={({ item }) => (
                         <ProductCard product={item} />
