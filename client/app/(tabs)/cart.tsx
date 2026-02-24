@@ -56,7 +56,7 @@ const Cart = () => {
         <View className='flex-1 items-center justify-center'>
           <Text className='text-secondary text-lg'>Your cart is empty</Text>
           <TouchableOpacity className='mt-4' onPress={() => router.push('/')}>
-            <Text className='text-primary font-bold'>Start Shoping</Text>
+            <Text className='text-primary font-bold'>Start Shopping</Text>
           </TouchableOpacity>
         </View>
       )}

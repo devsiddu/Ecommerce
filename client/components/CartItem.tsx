@@ -6,7 +6,7 @@ import { COLORS } from '@/constants';
 
 const CartItem = ({ item, onRemove, onUpdateQuantity }: CartItemProps) => {
 
-    const imageUrl = item.product.images[0];
+    const imageUrl = item.product.images[0] ?? '';
 
     return (
         <View className='flex-row mb-4 bg-white p-3 rounded-xl'>
@@ -44,7 +44,11 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }: CartItemProps) => {
                     <View className='flex-row items-center bg-surface rounded-full px-2 py-1'>
                         <TouchableOpacity
                             className='p-1'
-                            onPress={() => onUpdateQuantity && onUpdateQuantity(item.quantity - 1)}>
+                            onPress={() => {
+                                if (item.quantity > 1) {
+                                    onUpdateQuantity && onUpdateQuantity(item.quantity - 1);
+                                }
+                            }}>
                             <Ionicons name='remove' size={16} color={COLORS.primary} />
                         </TouchableOpacity>
 
