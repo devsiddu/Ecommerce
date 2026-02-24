@@ -35,13 +35,14 @@ const ProductDetails = () => {
 
   const fetchProduct = async () => {
     setLoading(true);
-    setProduct(dummyProducts.find((product) => product._id === id) as any);
+    const found = dummyProducts.find((product) => product._id === id) as any || null;
+    setProduct(found);
     setLoading(false);
   };
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return (
@@ -186,7 +187,7 @@ const ProductDetails = () => {
       </ScrollView>
       {/* Footer */}
 
-      <View className="absolute bottom-0 left-0 flex-row right-0 p-4 bg-white bottom-t border-gray-100">
+      <View className="absolute bottom-0 left-0 flex-row right-0 p-4 bg-white border-t border-gray-100">
         <TouchableOpacity onPress={handleAddToCart} className="w-4/5 bg-primary py-4 rounded-full items-center shadow-lg flex-row justify-center">
           <Ionicons
             name="bag-outline"
